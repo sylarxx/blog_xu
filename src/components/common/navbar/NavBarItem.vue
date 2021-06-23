@@ -8,9 +8,13 @@
 <script>
 export default {
   name: "NavBarItem",
+  props: {
+    path: String,
+  },
   methods: {
     itemClick() {
       console.log("点击");
+      this.$router.replace(this.path);
     },
   },
 };

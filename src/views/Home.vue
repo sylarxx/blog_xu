@@ -7,19 +7,19 @@
         </el-col>
         <el-col :span="7" :offset="10">
           <nav-bar>
-            <nav-bar-item>
+            <nav-bar-item path="/home">
               <template v-slot:item-icon>
                 <i class="el-icon-s-home"></i>
               </template>
               <template v-slot:item-text>首页</template>
             </nav-bar-item>
-            <nav-bar-item>
+            <nav-bar-item path="/learningnotes">
               <template v-slot:item-icon>
                 <i class="el-icon-notebook-1"></i>
               </template>
               <template v-slot:item-text>学习笔记</template>
             </nav-bar-item>
-            <nav-bar-item>
+            <nav-bar-item path="/projectbugs">
               <template v-slot:item-icon>
                 <i class="el-icon-question"></i>
               </template>
