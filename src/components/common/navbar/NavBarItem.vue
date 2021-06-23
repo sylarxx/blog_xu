@@ -18,10 +18,11 @@ export default {
 
 <style>
 .nav-bar-item {
-  flex: 1;
+  margin-left: 36px;
+  justify-content: flex-start;
   text-align: center;
   height: 49px;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: 700;
   /*设置字体为渐变色*/
   -webkit-background-clip: text;
