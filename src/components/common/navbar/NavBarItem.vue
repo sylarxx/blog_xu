@@ -1,7 +1,9 @@
 <template>
   <div class="nav-bar-item" @click="itemClick">
-    <slot name="item-icon"></slot>
-    <slot name="item-text"></slot>
+    <div :style="activeStyle">
+      <slot name="item-icon"></slot>
+      <slot name="item-text"></slot>
+    </div>
   </div>
 </template>
 
@@ -10,6 +12,21 @@ export default {
   name: "NavBarItem",
   props: {
     path: String,
+  },
+  computed: {
+    isActive() {
+      return this.$route.path.indexOf(this.path) !== -1;
+    },
+    activeStyle() {
+      return this.isActive
+        ? {
+            backgroundImage:
+              "linear-gradient(to right, #434343 0%, black 100%)",
+            webkitBackgroundClip: "text",
+            webkitTextFillColor: "transparent",
+          }
+        : {};
+    },
   },
   methods: {
     itemClick() {
