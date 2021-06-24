@@ -5,48 +5,39 @@
         <el-col :span="6">
           <individual_logo />
         </el-col>
-        <el-col :span="7" :offset="10">
-          <nav-bar>
-            <nav-bar-item path="/home">
-              <template v-slot:item-icon>
-                <i class="el-icon-s-home"></i>
-              </template>
-              <template v-slot:item-text>首页</template>
-            </nav-bar-item>
-            <nav-bar-item path="/learningnotes">
-              <template v-slot:item-icon>
-                <i class="el-icon-notebook-1"></i>
-              </template>
-              <template v-slot:item-text>学习笔记</template>
-            </nav-bar-item>
-            <nav-bar-item path="/projectbugs">
-              <template v-slot:item-icon>
-                <i class="el-icon-question"></i>
-              </template>
-              <template v-slot:item-text>项目BUGS</template>
-            </nav-bar-item>
-          </nav-bar>
-        </el-col>
-        <el-col :span="1">
+        <el-col :span="2" :offset="16">
           <div class="search">
             <i class="el-icon-search"></i>
           </div>
         </el-col>
       </el-row>
     </el-header>
+    <el-main>
+      <el-row>
+        <div class="blog-title">Xu Yi Chen's BLOG</div>
+      </el-row>
+      <el-row>
+        <tab-bar class="learning-notes" path="/learningnotes">
+          <h4>学习笔记</h4>
+        </tab-bar>
+        <tab-bar class="project-bugs" path="/projectbugs">
+          <h4>项目BUGS</h4>
+        </tab-bar>
+      </el-row>
+    </el-main>
   </el-container>
 </template>
 
 <script>
 import individual_logo from "../components/content/Individual_logo.vue";
-import NavBar from "../components/common/navbar/NavBar.vue";
-import NavBarItem from "../components/common/navbar/NavBarItem.vue";
+import MainNavBar from "../components/content/MainNavBar.vue";
+import TabBar from "../components/common/tabbar/TabBar.vue";
 export default {
   name: "Home",
   components: {
     individual_logo,
-    NavBar,
-    NavBarItem,
+    MainNavBar,
+    TabBar,
   },
 };
 </script>
@@ -72,5 +63,32 @@ export default {
   -webkit-text-fill-color: transparent;
   background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
   cursor: pointer;
+}
+
+.el-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.blog-title {
+  margin-bottom: 5rem;
+  font-size: 4rem;
+  font-weight: 700;
+  /*设置字体为渐变色*/
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
+}
+
+.learning-notes h4,
+.project-bugs h4 {
+  font-size: 2.5rem;
+  text-align: center;
+  /*设置字体为渐变色*/
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(45deg, #93a5cf 0%, #e4efe9 100%);
 }
 </style>

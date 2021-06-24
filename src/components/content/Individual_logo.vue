@@ -1,7 +1,7 @@
 <template>
   <div class="individual_logo">
     <img src="../../assets/img/individual_logo.jpg" />
-    <span>Xu Yi Chen</span>
+    <span>徐逸臣</span>
   </div>
 </template>
 
@@ -24,7 +24,7 @@ export default {
 }
 
 .individual_logo span {
-  font-size: 2rem;
+  font-size: 1.4rem;
   font-weight: 700;
   vertical-align: middle;
   /*设置字体为渐变色*/

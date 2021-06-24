@@ -13,8 +13,7 @@ export default {
   },
   methods: {
     itemClick() {
-      console.log("点击");
-      this.$router.replace(this.path);
+      this.$router.push(this.path);
     },
   },
 };
