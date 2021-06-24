@@ -22,11 +22,24 @@
 <script>
 import individual_logo from "../components/content/Individual_logo.vue";
 import MainNavBar from "../components/content/MainNavBar.vue";
+import { getLearningNotesMultidata } from "../network/learningnotes";
 export default {
   name: "LearningNotes",
   components: {
     individual_logo,
     MainNavBar,
+  },
+  data() {
+    return {
+      result: null,
+    };
+  },
+  created() {
+    // 1.请求多个数据
+    getLearningNotesMultidata().then((res) => {
+      console.log(res);
+      this.result = res;
+    });
   },
 };
 </script>
