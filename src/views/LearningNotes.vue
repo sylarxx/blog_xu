@@ -15,7 +15,9 @@
         </el-col>
       </el-row>
     </el-header>
-    <el-main> </el-main>
+    <el-main>
+      
+    </el-main>
   </el-container>
 </template>
 
