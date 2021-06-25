@@ -35,3 +35,6 @@ class Article(models.Model):
     # 在类中的str方法是在打印类的实例对象时，调用该方法，一般返回一个字符串
     def __str__(self):
         return self.title
+
+    class Meta:
+        ordering = ['-created']

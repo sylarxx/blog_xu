@@ -1,19 +1,23 @@
+from .serializers import ArticleSerializer
+from rest_framework import viewsets
 from django.shortcuts import render
 from rest_framework import permissions
+from rest_framework import views
 from .models import Article
-from .serializers import ArticleListSerializer
+#from .serializers import ArticleListSerializer
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import serializers, status
 from rest_framework.views import APIView
 from django.http import Http404
-from .serializers import ArticleDetailSerializer
+#from .serializers import ArticleDetailSerializer
 from rest_framework import mixins
 from rest_framework import generics
 from rest_framework.permissions import IsAdminUser
 from .permissions import IsAdminUserOrReadOnly
 
 
+'''
 # Create your views here.
 class ArticleList(generics.ListCreateAPIView):
     queryset = Article.objects.all()
@@ -27,7 +31,7 @@ class ArticleDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleDetailSerializer
     permission_classes = [IsAdminUserOrReadOnly]
-
+'''
 
 # @api_view装饰器允许视图接收GET,POST请求
 '''
@@ -81,3 +85,12 @@ class ArticleDetail(APIView):
         # 删除成功后返回204
         return Response(status=status.HTTP_204_NO_CONTENT)
 '''
+
+
+class ArticleViewSet(viewsets.ModelViewSet):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+    permission_classes = [IsAdminUserOrReadOnly]
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
